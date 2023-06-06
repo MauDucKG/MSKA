@@ -1,6 +1,10 @@
 import React from "react";
 import { Vega } from "react-vega";
 import { zodiacColors } from "../shared/zodiacColors";
+import Nav from "../shared/nav";
+import Foot from "../shared/foot";
+import { urlResource } from "../shared/urlResource";
+import { useNavigate } from "react-router-dom";
 
 const demodata = [
   { category: "Ari", amount: 1.1 },
@@ -19,7 +23,7 @@ const demodata = [
 
 const spec = {
   $schema: "https://vega.github.io/schema/vega/v5.json",
-  width: 600,
+  width: 400,
   height: 400,
   padding: { left: 5, right: 5, top: 20, bottom: 0 },
   autosize: "none",
@@ -69,6 +73,7 @@ const spec = {
           size: { signal: "pow(2 * datum.amount, 2)", scale: "size" },
           stroke: { value: "white" },
           strokeWidth: { value: 1 },
+          tooltip: { signal: "datum.amount*100" },
         },
       },
       transform: [
@@ -107,5 +112,38 @@ const spec = {
   ],
 };
 export default function Home() {
-  return <Vega spec={spec} actions={false} />;
+  const navigate = useNavigate();
+  return (
+    <>
+      <div class="d-flex flex-column h-100">
+        <div className="container">
+          <div>
+            <Nav />
+          </div>
+          <div className="d-flex justify-content-between align-items-center row">
+            <div className="col-md-6 col-12 text-center">
+              <h1>
+                Dựa theo thống kê, ghi chú và tổng hợp, hình bên là tổng quan số
+                khảo sát được lấy từ các chòm sao
+              </h1>
+              <button
+                className="btn btn-primary btn-lg"
+                onClick={() => {
+                  navigate("/overview");
+                }}
+              >
+                Bắt đầu đi dị không
+              </button>
+            </div>
+            <div className="col-md-6 col-12 text-center">
+              <Vega spec={spec} actions={false} />
+            </div>
+          </div>
+          <div>
+            <Foot />
+          </div>
+        </div>
+      </div>
+    </>
+  );
 }
