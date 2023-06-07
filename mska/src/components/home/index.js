@@ -3,7 +3,6 @@ import { Vega } from "react-vega";
 import { zodiacColors } from "../shared/zodiacColors";
 import Nav from "../shared/nav";
 import Foot from "../shared/foot";
-import { urlResource } from "../shared/urlResource";
 import { useNavigate } from "react-router-dom";
 
 const demodata = [

@@ -3,9 +3,8 @@ import React from "react";
 export default function Nav() {
   return (
     <>
-      <div className="d-flex flex-column flex-md-row align-items-center py-2 mb-4 border-bottom">
-        <a
-          href="/"
+      <div className="d-flex flex-column flex-md-row align-items-center pt-2 mb-4 border-bottom">
+        <p
           className="d-flex align-items-center link-body-emphasis text-decoration-none"
         >
           <svg
@@ -21,30 +20,27 @@ export default function Nav() {
             />
           </svg>
           <strong className="fs-4">MSKA</strong>
-        </a>
+        </p>
 
         <nav className="d-inline-flex mt-2 mt-md-0 ms-md-auto">
-          <a
+          <p
             className="me-3 py-2 link-body-emphasis text-decoration-none"
-            href="#"
           >
             Features
-          </a>
-          <a
+          </p>
+          <p
             className="me-3 py-2 link-body-emphasis text-decoration-none"
-            href="#"
           >
             Enterprise
-          </a>
-          <a
+          </p>
+          <p
             className="me-3 py-2 link-body-emphasis text-decoration-none"
-            href="#"
           >
             Support
-          </a>
-          <a className="py-2 link-body-emphasis text-decoration-none" href="#">
+          </p>
+          <p className="py-2 link-body-emphasis text-decoration-none" >
             Pricing
-          </a>
+          </p>
         </nav>
       </div>
     </>
